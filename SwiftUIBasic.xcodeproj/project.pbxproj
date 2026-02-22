@@ -20,6 +20,11 @@
 			path = SwiftUIBasic;
 			sourceTree = "<group>";
 		};
+		D89174A32F4BB8A100B9C557 /* Extensions */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +44,7 @@
 			children = (
 				D858809D2E6E48E100006724 /* Products */,
 				D8390FC52E77974400008887 /* SwiftUIBasic */,
+				D89174A32F4BB8A100B9C557 /* Extensions */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +73,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D8390FC52E77974400008887 /* SwiftUIBasic */,
+				D89174A32F4BB8A100B9C557 /* Extensions */,
 			);
 			name = SwiftUIBasic;
 			packageProductDependencies = (

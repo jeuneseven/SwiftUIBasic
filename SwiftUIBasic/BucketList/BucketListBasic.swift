@@ -172,24 +172,24 @@ struct BucketListBasic: View {
 //    }
 //}
 
-//extension FileManager {
-//    @discardableResult
-//    func write(_ data: Data, fileName: String?, path: FileManager.SearchPathDirectory = .documentDirectory, options: Data.WritingOptions = [.atomic, .completeFileProtection]) throws -> URL {
-//        guard let urlPath = fileName else { return URL(string:"")! }
-//
-//        let url = try self.url(for: path, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(urlPath)
-//        try data.write(to: url)
-//        return url
-//    }
-//
-//    @discardableResult
-//    func read(fileName: String?, directory: FileManager.SearchPathDirectory = .documentDirectory, encoding: String.Encoding = .utf8) throws -> String {
-//        guard let fileName = fileName else { return "" }
-//        let url = try self.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: false)
-//                    .appendingPathComponent(fileName)
-//        return try String(contentsOf: url, encoding: encoding)
-//    }
-//}
+extension FileManager {
+    @discardableResult
+    func write(_ data: Data, fileName: String?, path: FileManager.SearchPathDirectory = .documentDirectory, options: Data.WritingOptions = [.atomic, .completeFileProtection]) throws -> URL {
+        guard let urlPath = fileName else { return URL(string:"")! }
+
+        let url = try self.url(for: path, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(urlPath)
+        try data.write(to: url)
+        return url
+    }
+
+    @discardableResult
+    func read(fileName: String?, directory: FileManager.SearchPathDirectory = .documentDirectory, encoding: String.Encoding = .utf8) throws -> String {
+        guard let fileName = fileName else { return "" }
+        let url = try self.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: false)
+                    .appendingPathComponent(fileName)
+        return try String(contentsOf: url, encoding: encoding)
+    }
+}
 //
 //struct BucketListBasic: View {
 //    var body: some View {
