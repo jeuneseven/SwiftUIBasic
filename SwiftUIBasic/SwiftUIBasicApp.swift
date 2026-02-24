@@ -11,9 +11,8 @@ import SwiftData
 @main // tell swift we launch app from here
 struct SwiftUIBasicApp: App {
     var body: some Scene {
-        WindowGroup { // tell swift support multiple windows
-            HotProspectsBasic()
-//                .modelContainer(for: [StudentModel.self])
+        WindowGroup {
+            ContentView()
         }
     }
 }
