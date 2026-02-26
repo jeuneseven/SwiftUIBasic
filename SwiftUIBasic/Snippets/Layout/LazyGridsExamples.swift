@@ -361,6 +361,13 @@ struct PhotoGalleryGridExample: View {
 
 // MARK: - App Grid (Home Screen Style)
 
+struct AppInfo: Identifiable {
+    let id = UUID()
+    let icon: String
+    let name: String
+    let color: Color
+}
+
 struct AppGridExample: View {
     let columns = [
         GridItem(.flexible()),
@@ -369,19 +376,19 @@ struct AppGridExample: View {
         GridItem(.flexible())
     ]
     
-    let apps = [
-        ("message.fill", "Messages", Color.green),
-        ("phone.fill", "Phone", Color.green),
-        ("envelope.fill", "Mail", Color.blue),
-        ("safari.fill", "Safari", Color.blue),
-        ("music.note", "Music", Color.red),
-        ("photo.fill", "Photos", Color.orange),
-        ("camera.fill", "Camera", Color.gray),
-        ("gear", "Settings", Color.gray),
-        ("map.fill", "Maps", Color.green),
-        ("clock.fill", "Clock", Color.black),
-        ("calendar", "Calendar", Color.red),
-        ("note.text", "Notes", Color.yellow)
+    let apps: [AppInfo] = [
+        AppInfo(icon: "message.fill", name: "Messages", color: .green),
+        AppInfo(icon: "phone.fill", name: "Phone", color: .green),
+        AppInfo(icon: "envelope.fill", name: "Mail", color: .blue),
+        AppInfo(icon: "safari.fill", name: "Safari", color: .blue),
+        AppInfo(icon: "music.note", name: "Music", color: .red),
+        AppInfo(icon: "photo.fill", name: "Photos", color: .orange),
+        AppInfo(icon: "camera.fill", name: "Camera", color: .gray),
+        AppInfo(icon: "gear", name: "Settings", color: .gray),
+        AppInfo(icon: "map.fill", name: "Maps", color: .green),
+        AppInfo(icon: "clock.fill", name: "Clock", color: .black),
+        AppInfo(icon: "calendar", name: "Calendar", color: .red),
+        AppInfo(icon: "note.text", name: "Notes", color: .yellow)
     ]
     
     var body: some View {
@@ -390,16 +397,16 @@ struct AppGridExample: View {
                 .font(.headline)
             
             LazyVGrid(columns: columns, spacing: 24) {
-                ForEach(apps, id: \.1) { app in
+                ForEach(apps) { app in
                     VStack(spacing: 6) {
-                        Image(systemName: app.0)
+                        Image(systemName: app.icon)
                             .font(.system(size: 28))
                             .foregroundStyle(.white)
                             .frame(width: 60, height: 60)
-                            .background(app.2.gradient)
+                            .background(app.color.gradient)
                             .clipShape(.rect(cornerRadius: 14))
                         
-                        Text(app.1)
+                        Text(app.name)
                             .font(.caption2)
                             .lineLimit(1)
                     }
